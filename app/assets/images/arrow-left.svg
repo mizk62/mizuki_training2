@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow-left</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="180213_top_design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-10.000000, -254.000000)">
+        <g id="slideshow" transform="translate(-299.097656, 0.000000)">
+            <g id="arrow-left" transform="translate(309.097656, 254.000000)">
+                <circle id="Oval" fill="#4A4A4A" opacity="0.6" cx="10.1406632" cy="9.80549102" r="9.52380952"></circle>
+                <path d="M10.1404946,13.3576091 C9.9600554,13.3576091 9.77961622,13.2720454 9.64251617,13.1023789 L5.31214457,7.74338066 C5.03608949,7.40175208 5.03608949,6.84892734 5.31214457,6.50834223 C5.58735647,6.16838319 6.03406991,6.16838319 6.30945045,6.50834223 L10.1404946,11.2502387 L13.9723819,6.509177 C14.2477624,6.16838319 14.6943072,6.16838319 14.9696878,6.509177 C15.2450683,6.84976211 15.2450683,7.40258685 14.9696878,7.74338066 L10.6393161,13.1023789 C10.5022161,13.2728802 10.3211024,13.3576091 10.1404946,13.3576091" id="Fill-1" fill="#FFFFFF" transform="translate(10.140663, 9.805491) rotate(-270.000000) translate(-10.140663, -9.805491) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

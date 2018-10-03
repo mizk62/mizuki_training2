@@ -1,0 +1,19 @@
+
+<div class="header_wrapper">
+  <div class="hamburger_menu_box">
+    <% if current_user %>
+      <%= current_user.username %>'s Menu
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', user_session_path %>
+    <% end %>
+  </div>
+  <div class="header_icon">
+    <%#= image_tag('instagram.png' , class: 'header_icon_img') %>
+  </div>
+  <% if current_user %>
+    <div class="add_new_post_btn">
+      <%= link_to 'Add New', new_post_path, class: 'add_new' %>
+    </div>
+  <% end %>
+</div>

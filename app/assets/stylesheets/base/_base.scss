@@ -1,0 +1,170 @@
+// Color
+$black: #2a2b2b;
+$dark-gray: #535454;
+$gray: #818282;
+$silver-gray: #a7a8a8;
+$light-gray: #e7ebeb;
+$extralight-gray: #edf0f0;
+$off-white: #f7fafa;
+$white: #ffffff;
+$dark-green: #004d4d;
+$light-cyan: #e6f7ff;
+
+$green: #0af9b2;
+$cyan: #3df6f4;
+
+// space
+$default_space: 4px;
+
+// radius
+$radius04: 4px;
+$radius08: 8px;
+$radius12: 12px;
+$radius18: 18px;
+$radius22: 22px;
+$radius28: 28px;
+$radius99: 50%;
+
+// Shadow
+$shadow01: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+$shadow02:0 2px 8px 0 rgba(0, 0, 0, 0.08);
+$shadow03: 0 3px 12px 0 rgba(0, 0, 0, 0.06);
+$shadow04: 0 4px 16px 0 rgba(0, 0, 0, 0.04);
+
+
+body {
+  background-color: $off-white;
+  -webkit-font-smoothing: antialiased;
+
+  // text-body
+  color: $black;
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .container {
+    overflow-x: hidden;
+  }
+}
+
+
+.text {
+  &--head1 {
+    font-size: 28px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+  &--head3 {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  &--sub-head1 {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  &--sub-head2 {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  &--sub-head3 {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+  &--caption1 {
+    font-size: 12px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.8;
+    letter-spacing: 1px;
+  }
+  &--caption2 {
+    font-size: 10px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+  &--caption3 {
+    font-size: 10px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 1px;
+  }
+
+  &--black {
+    color: $black;
+  }
+  &--gray {
+    color: $gray;
+  }
+  &--light-gray {
+    color: $light-gray;
+  }
+  &--silver-gray {
+    color: $silver-gray;
+  }
+  &--white {
+    color: $white;
+  }
+  &--dark-gray {
+    color: $dark-gray;
+  }
+
+  &--center {
+    text-align: center;
+    margin: 0 auto
+  }
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+
+  &--line-through {
+    text-decoration: line-through;
+  }
+
+  &--shadow {
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  }
+}

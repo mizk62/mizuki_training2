@@ -1,0 +1,136 @@
+
+<div class="header_wrapper">
+  <div id="nav-drawer">
+    <input id="nav-input" type="checkbox" class="nav-unshown">
+    <label id="nav-open" for="nav-input"><span class="nav-open-icon">◇</span></label>
+    <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+    <div id="nav-content">
+      <% if current_user %>
+      <!--p><%#= current_user.username %>'s Menu</p-->
+      <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
+      <% else %>
+        <%= link_to 'Login', user_session_path %>
+      <% end %>
+    </div>
+  </div>
+  <div class="header_icon">
+    <%#= image_tag('instagram.png' , class: 'header_icon_img') %>
+  </div>
+  <% if current_user %>
+    <div class="add_new_post_btn">
+      <%= link_to '+', new_post_path, class: 'add_new' %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<!--▼ボディstart▼-->
+
+
+
+<div class="timeline_background">
+  <div class="timeline_wrapper">
+    <div class="">
+      <ul>
+        <% @posts.each do |post| %>
+        <li class="article_block">
+          <div class="article_header_box">
+            <div class="post_user">
+              <div class="post_user_icon">
+
+              </div>
+              <div class="post_user_name">
+                <p><%= post.user.username %></p>
+              </div>
+            </div>
+            <div class="post_controll_box">
+              <% if current_user == post.user%>
+                <label class="post_controll_box_btn" for="label1">･･･</label>
+                <input class="post_controll_checkbox" type="checkbox" id="label1"/>
+                <div class="post_controll_menu">
+                  <!--非表示ここから-->
+                  	<p><%= link_to '[Edit]', edit_post_path(post) %></p>
+                    <p><%= link_to '[x]', post_path(post),method: :delete, class: 'command', data: { confirm: 'Sure?' } %></p></p>
+                  <!--ここまで-->
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="article_image_box">
+            <%= image_tag post.img.url unless post.img.blank?%>
+          </div>
+          <div class="text_content_part">
+            <div class="article_text_box">
+              <div class="article_title .text--head3">
+                <p><%= post.title %></p>
+              </div>
+              <div class="article_text .text--sub-head2">
+                <p><%= simple_format post.body %></p>
+              </div>
+            </div>
+            <% if post.comments.any? %>
+            <div class="comments_box">
+              <ul>
+                <% post.comments.each do |comment| %>
+                <li>
+                  <div class="comment_wrapper">
+                    <div class="comment_content">
+                      <%= comment.user.username %>　<%= comment.body %>
+                    </div>
+                    <div class="comment_controller">
+                      <% if current_user == comment.user%>
+                        <%= link_to '[Edit]', edit_post_comment_path(post_id: post.id, id: comment.id) %><%= link_to '[x]', post_comment_path(post_id: post.id, id: comment.id), {method: "delete"} %>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+            <% end %>
+
+            <%= form_for( [post, post.comments.build] ) do |f| %>
+              <div class="add_comment_box">
+                <%= f.text_field :body, placeholder: ' Add comment...' %>
+                <div class="create_comment_btn_box">
+                  <%= f.submit "send" %>
+                <div>
+              </div>
+            <% end %>
+          </div>
+          <!--p>Likes</p-->
+          <%# if user_signed_in? %>
+            <%#= form_for [post, @like] do |f| %>
+              <%#= f.submit 'いいね！' %>
+            <%# end %>
+            <%#= render partial: 'likes/like', locals: { post: post } %>
+          <%# end %>
+
+          <%#= form_for [post, @like] do |f| %>
+            <%#= f.submit 'いいね！' %>
+          <%#å end %>
+
+
+
+          <%# if Like.where(user_id: current_user.id, post_id: post.id) %>
+            <%#= link_to 'いいね！済み', post_like_path(post, @like), method: :delete %>
+          <%# else %>
+            <%#= link_to 'いいね！しました', post_likes_path(post, @like) %>
+          <%# end %>
+            <%#= link_to 'いいね！済み', post_likes_path(post, @like) %>
+          <%#= form_for [post, @like] do |f| %>
+            <%#= f.submit 'いいね！' %>
+          <%# end %>
+
+          <%# if Like.where(user_id: current_user.id, post_id: post.id) %>
+            <%#= link_to 'いいね！済み', post_like_path(post, @like), method: :delete %>
+          <%# else %>
+            <%#= image_tag("arrow-right.svg") %>
+          <%# end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

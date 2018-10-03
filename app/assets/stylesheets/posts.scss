@@ -1,0 +1,261 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*ヘッダー*/
+.header_wrapper {
+	width: 100%;
+	height: 92px;
+	position: fixed;
+	background-color: #ffffff;
+  border-bottom: solid 1px lightgray;
+  opacity: 0.9;
+  #nav-drawer {
+    position: relative;
+  }
+  /*チェックボックス等は非表示に*/
+  .nav-unshown {
+    display:none;
+  }
+  /*アイコンのスペース*/
+  #nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 22px;
+    vertical-align: middle;
+  }
+  /*閉じる用の薄黒カバー*/
+  #nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+  }
+  /*中身*/
+  #nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+    max-width: 330px;/*最大幅（調整してください）*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+  }
+
+  /*チェックが入ったらもろもろ表示*/
+  #nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+  }
+
+  #nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示（右へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+  }
+
+/*	.header_icon {
+		width: 160px;
+    margin: auto;
+    padding: 20px;
+		.header_icon_img {
+			width: 100%;
+		}
+	}*/
+  .add_new_post_btn {
+    float: right;
+  }
+}
+
+
+.post_controll_box {
+    padding: 0;
+  /*ボタン装飾*/
+  .post_controll_box_btn {
+      padding: 10px;
+      font-weight: bold;
+      cursor :pointer;
+  }
+  .post_controll_box_btn:hover {
+      opacity: 0.8;
+  }
+  .post_controll_checkbox {
+    display: none;
+  }
+  /*中身を非表示にしておく*/
+  .post_controll_menu {
+    z-index: 100;
+    position: absolute;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+  }
+  /*クリックで中身表示*/
+  .post_controll_checkbox:checked ~ .post_controll_menu {
+      padding: 10px 0;
+      height: auto;
+      opacity: 1;
+  }
+}
+
+
+
+
+
+/*ボディ*/
+.timeline_background {
+  background-color: #fafafa;
+  padding: 92px 0;
+  .timeline_wrapper {
+    width: 600px;
+    margin: auto;
+  	.article_block {
+      margin: 60px 0;
+      background-color: #ffffff;
+      border: solid 1px lightgray;
+  		.article_header_box {
+        height: 28px;
+        padding: 20px;
+        overflow: hidden;
+  			.post_user {
+          float: left;
+  				.post_user_icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 30px;
+            border: solid 1px lightgray;
+            float: left;
+  				}
+  				.post_user_name {
+            float: left;
+            margin-left: 12px;
+  				}
+  			}
+        .post_controll_box {
+            float: right;
+            padding: 0;
+          /*ボタン装飾*/
+          .post_controll_box_btn {
+              padding: 10px;
+              font-weight: bold;
+              cursor :pointer;
+          }
+          .post_controll_box_btn:hover {
+              opacity: 0.8;
+          }
+          .post_controll_checkbox {
+            display: none;
+          }
+          /*中身を非表示にしておく*/
+          .post_controll_menu {
+              height: 0;
+              padding: 0;
+              overflow: hidden;
+              opacity: 0;
+              transition: 0.8s;
+          }
+          /*クリックで中身表示*/
+          .post_controll_checkbox:checked ~ .post_controll_menu {
+              padding: 10px 0;
+              height: auto;
+              opacity: 1;
+          }
+        }
+  		}
+  		.article_image_box {
+        clear: both;
+        width: 100%;
+  		}
+  		.article_reaction_box {
+        height: 60px;
+        padding: 0 12px;
+        overflow: hidden;
+  			.reaction_btn {
+          float: left;
+          font-size: 24px;
+          padding: 12px;
+          overflow: hidden;
+          .favorite_icon:after {
+          	font-family: FontAwesome;
+          	content : "\f004";
+          }
+          .comment_icon:after {
+          	font-family: FontAwesome;
+          	content : "\f004";
+          }
+          .join_icon:after {
+          	font-family: FontAwesome;
+          	content : "\f004";
+          }
+  			}
+        .reaction_summry {
+          float: left;
+          padding: 20px;
+        }
+  		}
+      .text_content_part {
+        width: 92%;
+        margin: auto;
+        .article_text_box {
+          padding: 8px 0;
+    			.article_title {
+            padding: 8px 0;
+            font-size: 24px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+    			}
+    			.article_text {
+            font-size: 16px;
+            line-height: 1.5;
+            letter-spacing: 0.5px;
+    			}
+        }
+        .comments_box {
+          padding: 8px 0;
+          .comment_wrapper {
+            padding: 4px;
+            overflow: hidden;
+            .comment_content {
+              float: left;
+            }
+            .comment_controller {
+              float: right;
+            }
+          }
+        }
+        .add_comment_box {
+          position: relative;
+          height: 40px;
+          border-top: solid 1px lightgray;
+          padding: 10px 0;
+          .create_comment_btn_box {
+            position: absolute;
+            top: 10px;
+            right: 0;
+            input[type="submit"] {
+              width: 52px;
+              padding: 2px 4px;
+              background-color: lightgray;
+              border-radius: 4px;
+              color: #ffffff;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+  	}
+  }
+}
