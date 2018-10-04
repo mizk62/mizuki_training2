@@ -1,14 +1,19 @@
-<%= form_for @post do |f| %>
-  <p>
-    <%= f.text_field :title, placeholder: 'タイトルを入力' %>
-  </p>
-  <p>
-    <%= f.text_area :body, placeholder: '本文を入力' %>
-  </p>
-  <p>
-    <%= f.file_field :img %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+
+<div class="post_form_box">
+  <%= form_for @post do |f| %>
+    <div class="post_form_title_area">
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </div>
+    <div class="post_form_text_area">
+      <%= f.text_area :body, :size => "75x15", placeholder: 'text...' %>
+    </div>
+    <div class="post_form_img_area">
+      <%= f.file_field :img %>
+    </div>
+    <div class="post_form_submitbtn_area">
+      <%= f.submit class:'post_form_submitbtn'%>
+    </div>
+  <% end %>
+</div>
+
+<!--style: "display:none;"-->

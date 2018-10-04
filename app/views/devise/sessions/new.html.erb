@@ -5,43 +5,24 @@
   </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form_box">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '　Email' %>
+      <%= f.email_field :email, autocomplete: "email", placeholder: '　Email' %>
     </div>
     <div class="form_box">
       <%= f.password_field :password, autocomplete: "current-password", placeholder: '　Password' %>
     </div>
-    <% if devise_mapping.rememberable? -%>
-      <div class="form_box">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+    <div class="remember-me_checkbox">
+      <p class="remember-me_text">Remember me</p>
+      <div class="toggle-btn_box">
+        <input type="checkbox" id="toggle-btn" checked />
+        <label for="toggle-btn" data-on-label="On" data-off-label="Off"></label>
       </div>
-    <% end -%>
+    </div>
     <div class="form_box">
       <%= f.submit "Log in",  html: {id: 'login_btn'} %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
-</div>
-
-</div>
-<!--div class="background_wrapper">
-  <div class="background-opacity">
-    <header>
-      <nav>
-        <%if user_signed_in? %>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
-      </nav>
-    </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
   </div>
-</div-->
+
+</div>

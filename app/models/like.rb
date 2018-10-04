@@ -6,7 +6,7 @@ class Like < ApplicationRecord
   validates :post_id, {presence: true}
 
   def like_user(user_id)
-   likes.find_by(user_id: user_id)
+   likes.find_by(user_id: user.id)
   end
 
 #  validates_uniqueness_of :post_id, scope: :user_id

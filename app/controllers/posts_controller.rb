@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: 'desc')
-    @like = Like.new() 
+    @like_count = Like.where(post_id: @post).count 
   end
 
   def show
@@ -19,10 +19,9 @@ class PostsController < ApplicationController
     #save
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save!
-
-    #redirect
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path
+    end
   end
 
   def edit

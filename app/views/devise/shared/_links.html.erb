@@ -1,11 +1,15 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+  <%= link_to new_session_path(resource_name), class: 'shered_link' do %>
+  <div class="shered_link_box">
+    <p class="shered_link_text">Log_in</p>
+  </div>
+  <% end %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to new_registration_path(resource_name), class: 'signin_link' do %>
-  <div class="signin_link_box">
-    <p class="signin_link_text">sign_up</p>
+  <%= link_to new_registration_path(resource_name), class: 'shered_link' do %>
+  <div class="shered_link_box">
+    <p class="shered_link_text">sign_up</p>
   </div>
   <% end %>
 <% end -%>

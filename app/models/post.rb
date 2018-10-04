@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :user_id,{presence: true}
+
+  def like(user)
+    self.likes.find_by(user_id: user.id)
+  end
 end
