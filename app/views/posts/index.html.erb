@@ -1,4 +1,3 @@
-
 <div class="header_wrapper">
   <div class="header_inner">
     <div class="hamburger_menue_box">
@@ -85,19 +84,10 @@
             <%= image_tag post.img.url unless post.img.blank?%>
           </div>
           <div class="text_content_part">
-            <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-              <%= link_to(post_like_path(post_id:post.id, id: post.like(current_user).id), {method: "delete"}) do %>
-               <span class="active_heart"></span>
-              <% end %>
-            <% else %>
-              <%= link_to(post_likes_path(post_id: post.id), {method: "post"}) do %>
-                <span class="inactive_heart"></span>
-              <% end %>
-            <% end %>
-            <%= post.likes.count %>
-            <% post.likes.each do |like| %>
-              <%= like.user.username %>
-            <% end %>
+            <div id='likes_button_<%= post.id %>'>
+              <%= render partial: 'likes/like', locals: { post: post } %>
+            </div>
+            <%#= post.likes.count %>
             <div class="article_text_box">
               <div class="article_title .text--head3">
                 <p><%= post.title %></p>
@@ -141,34 +131,6 @@
               </div>
             <% end %>
           </div>
-          <%# if user_signed_in? %>
-            <%#= form_for [post, @like] do |f| %>
-              <%#= f.submit 'いいね！' %>
-            <%# end %>
-            <%#= render partial: 'likes/like', locals: { post: post } %>
-          <%# end %>
-
-          <%#= form_for [post, @like] do |f| %>
-            <%#= f.submit 'いいね！' %>
-          <%#å end %>
-
-
-
-          <%# if Like.where(user_id: current_user.id, post_id: post.id) %>
-            <%#= link_to 'いいね！済み', post_like_path(post, @like), method: :delete %>
-          <%# else %>
-            <%#= link_to 'いいね！しました', post_likes_path(post, @like) %>
-          <%# end %>
-            <%#= link_to 'いいね！済み', post_likes_path(post, @like) %>
-          <%#= form_for [post, @like] do |f| %>
-            <%#= f.submit 'いいね！' %>
-          <%# end %>
-
-          <%# if Like.where(user_id: current_user.id, post_id: post.id) %>
-            <%#= link_to 'いいね！済み', post_like_path(post, @like), method: :delete %>
-          <%# else %>
-            <%#= image_tag("arrow-right.svg") %>
-          <%# end %>
         </li>
         <% end %>
       </ul>
